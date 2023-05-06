@@ -20,17 +20,16 @@ const HandleForm = ({file, setFile, setFileName}: Props) => {
       fileData.set('file', file)
   
       try {
-        // const res: Response = await fetch('/api/upload', {
-        //   method: 'POST',
-        //   body: fileData,
-        // })
+        const res: Response = await fetch('/api/upload', {
+          method: 'POST',
+          body: fileData,
+        })
   
-        // if (res.ok) {
-        //   console.log('File Uploaded')
-        // }
-        // const data = await res.json()
+        if (res.ok) {
+          console.log('File Uploaded')
+        }
+        await res.json()
   
-        // console.log(data)
       } catch (error) {
         throw new Error('An error ocurred')      
       } finally{
